@@ -1,12 +1,24 @@
 let task = ["study", "walk", "Dinner", "BreakFast", "Lunch"];
 
-for (let i = 0; i < task.length; i++) {
-  task[i] = task[i + 1];
+let newTask = [];
+
+for (let i = 1; i < task.length; i++) {
+  newTask[i - 1] = task[i];
 }
 
-console.log(task);
-// task.shift();
-// task.unshift("Complete Assignment", "Attend session");
-// task.splice(task.length - 1, 1, "New Task Update");
+let high_priorityTask = ["Assignment", "Create Problem"];
 
-//console.log(newTask);
+let len1 = newTask.length;
+let len2 = high_priorityTask.length;
+
+let addTask = [];
+for (let i = 0; i < len1 + len2; i++) {
+  if (i < len2) {
+    addTask[i] = high_priorityTask[i];
+  } else {
+    addTask[i] = newTask[i - len2];
+  }
+}
+
+addTask[addTask.length - 1] = "New Task";
+console.log(addTask);
